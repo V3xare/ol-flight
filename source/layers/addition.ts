@@ -15,7 +15,7 @@ import { transform, transformExtent } from 'ol/proj'
 import {
 	Pointer as PointerInteraction,
 	defaults as defaultInteractions,
-  } from 'ol/interaction';
+} from 'ol/interaction';
 
 
 const AdditionLayerStyle = ( feature ) => {
@@ -142,13 +142,21 @@ export const AdditionLayerToolsGeometry = ( data, map: Map ) => {
 
 const AdditionLayerLoader = ( map: Map, params, source, extent, projection ) => {
 
+	const username = "WDiHmqbV";
+	const password = "VcWSvBC5";
+
 	extent = transformExtent( extent, projection, "EPSG:4326");
 	let bb = "lamin=" + extent[ 1 ] 
 					+ "&lomin=" + extent[ 0 ] 
 					+ "&lamax=" + extent[ 3 ]
 					+ "&lomax=" + extent[ 2 ];
 		
-	fetch( "https://opensky-network.org/api/states/all?" + bb )
+	fetch( "https://opensky-network.org/api/states/all?" + bb, {
+		method: "GET",
+		headers: {
+			"Authorization": "Basic " + btoa( username + ":" + password )
+		}
+	})
 	.then(( response ) => response.json() )
 	.then(( response ) => {
 		

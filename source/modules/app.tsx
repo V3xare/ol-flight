@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import ReactDOM from "react-dom";
 import { AdditionLayer, AdditionLayerToolsGeometry } from "@layers/addition"
+import Common from "@utility/common"
 
 import 'ol/ol.css';
 import 'ol-layerswitcher/dist/ol-layerswitcher.css';
@@ -33,6 +34,9 @@ export const App = ( props: any ) => {
 
 	const mapElement = useRef<any>( null );
 	const tooltipElement = useRef<any>( null );
+
+	//WDiHmqbV
+	//VcWSvBC5
 
 	const displayTooltip = ( event ) => {
 
